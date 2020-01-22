@@ -61,6 +61,8 @@ function start_etcd3 {
     $SYSTEMCTL daemon-reload
     $SYSTEMCTL enable $ETCD_SYSTEMD_SERVICE
     $SYSTEMCTL start $ETCD_SYSTEMD_SERVICE || {
+	ss -tnlp
+	ps waux
 	cat $unitfile
 	ls -l /opt/stack/logs
 	ls -l /opt/stack/bin
