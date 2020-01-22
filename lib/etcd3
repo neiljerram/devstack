@@ -35,7 +35,7 @@ fi
 # start_etcd3() - Starts to run the etcd process
 function start_etcd3 {
     local cmd="$ETCD_BIN_DIR/etcd"
-    cmd+=" --name $HOSTNAME --data-dir $ETCD_DATA_DIR"
+    cmd+=" --debug --name $HOSTNAME --data-dir $ETCD_DATA_DIR"
     cmd+=" --initial-cluster-state new --initial-cluster-token etcd-cluster-01"
     cmd+=" --initial-cluster $HOSTNAME=http://$SERVICE_HOST:$ETCD_PEER_PORT"
     cmd+=" --initial-advertise-peer-urls http://$SERVICE_HOST:$ETCD_PEER_PORT"
