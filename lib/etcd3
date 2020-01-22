@@ -63,6 +63,10 @@ function start_etcd3 {
     $SYSTEMCTL start $ETCD_SYSTEMD_SERVICE || {
 	$SYSTEMCTL status $ETCD_SYSTEMD_SERVICE
 	journalctl -xe
+	cat $unitfile
+	ls -l /opt/stack/logs
+	ls -l /opt/stack/bin
+	ls -l /opt/stack/data
 	false
     }
 }
